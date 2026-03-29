@@ -1,0 +1,185 @@
+/* FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* BACKGROUND */
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+header {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-weight: 500;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  opacity: 0.8;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+/* MAIN CONTAINER */
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 30px;
+  flex: 1;
+}
+
+/* GLASS CARD */
+.calendar, .events, .task-container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* CALENDAR */
+.calendar {
+  width: 45%;
+}
+
+.calendar h2 {
+  margin-bottom: 15px;
+}
+
+#calendarDates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+#calendarDates div {
+  padding: 12px;
+  text-align: center;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.2);
+  transition: 0.3s;
+}
+
+#calendarDates div:hover {
+  background: white;
+  color: #333;
+  cursor: pointer;
+}
+
+/* EVENTS */
+.events {
+  width: 45%;
+}
+
+.events h2 {
+  margin-bottom: 15px;
+}
+
+.events ul {
+  list-style: none;
+}
+
+.events li {
+  background: rgba(255,255,255,0.2);
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.3s;
+}
+
+.events li:hover {
+  background: white;
+  color: #333;
+}
+
+/* TASK PAGE */
+.task-container {
+  max-width: 500px;
+  margin: auto;
+}
+
+/* INPUTS */
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+input::placeholder {
+  color: #ddd;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+  background: white;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #f1f1f1;
+}
+
+/* TASK LIST */
+#taskList {
+  list-style: none;
+  margin-top: 15px;
+}
+
+#taskList li {
+  background: rgba(255,255,255,0.2);
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#taskList button {
+  background: #ff6b6b;
+  color: white;
+  padding: 6px 10px;
+  width: auto;
+}
+
+#taskList button:hover {
+  background: #ff4b4b;
+}

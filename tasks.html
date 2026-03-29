@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TTD Tasks</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Abirami Kanthasamy's Task Manager</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="tasks.html">Tasks</a>
+  </nav>
+</header>
+
+<div class="task-container">
+
+  <input type="text" id="taskInput" placeholder="Enter task">
+  <input type="date" id="taskDate">
+  <input type="time" id="taskTime">
+  <button onclick="addTask()">Add Task</button>
+
+  <ul id="taskList"></ul>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
