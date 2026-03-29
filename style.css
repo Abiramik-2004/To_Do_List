@@ -8,7 +8,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* BACKGROUND */
+/* BODY */
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea, #764ba2);
@@ -21,43 +21,38 @@ header {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px);
   color: white;
-  padding: 15px 20px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
 
-nav {
-  margin-top: 10px;
+header h1 {
+  font-size: 24px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
   margin-right: 15px;
-  opacity: 0.8;
-  font-size: 14px;
-}
-
-nav a:hover {
-  opacity: 1;
+  font-size: 16px;
 }
 
 /* MAIN CONTAINER */
 .container {
   display: flex;
-  gap: 20px;
-  padding: 20px;
+  gap: 25px;
+  padding: 25px;
   flex: 1;
 }
 
-/* GLASS CARD */
+/* CARDS */
 .calendar, .events, .task-container {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
   border-radius: 20px;
-  padding: 20px;
+  padding: 25px;
   color: white;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
@@ -67,18 +62,24 @@ nav a:hover {
   width: 50%;
 }
 
+.calendar h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
 #calendarDates {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
+  gap: 10px;
 }
 
 #calendarDates div {
-  padding: 10px;
+  padding: 14px;
   text-align: center;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.2);
-  font-size: 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.25);
+  font-size: 16px;
+  font-weight: 500;
 }
 
 #calendarDates div:hover {
@@ -91,96 +92,131 @@ nav a:hover {
   width: 50%;
 }
 
-.events ul {
-  list-style: none;
+.events h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
 }
 
 .events li {
-  background: rgba(255,255,255,0.2);
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 8px;
-  font-size: 14px;
+  background: rgba(255,255,255,0.25);
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* TASK PAGE */
 .task-container {
-  max-width: 500px;
+  max-width: 600px;
   width: 90%;
-  margin: 20px auto;
+  margin: 30px auto;
 }
 
 /* INPUTS */
 input {
   width: 100%;
-  padding: 10px;
-  margin: 6px 0;
-  border-radius: 8px;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 12px;
   border: none;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.25);
   color: white;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 /* BUTTON */
 button {
   width: 100%;
-  padding: 10px;
-  margin-top: 8px;
-  border-radius: 8px;
+  padding: 14px;
+  margin-top: 10px;
+  border-radius: 12px;
   border: none;
   background: white;
   color: #333;
-  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 /* TASK LIST */
 #taskList li {
-  background: rgba(255,255,255,0.2);
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 8px;
+  background: rgba(255,255,255,0.25);
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 12px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  font-size: 16px;
 }
 
 /* DELETE BUTTON */
 #taskList button {
   background: #ff6b6b;
   color: white;
-  padding: 5px 8px;
-  margin-top: 5px;
+  padding: 8px 12px;
+  margin-top: 8px;
+  font-size: 14px;
 }
 
-/* 📱 MOBILE RESPONSIVE */
+/* 📱 MOBILE PERFECT DESIGN */
 @media (max-width: 768px) {
+
+  body {
+    padding: 10px;
+  }
+
+  header {
+    padding: 15px;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
 
   .container {
     flex-direction: column;
+    padding: 10px;
+    gap: 15px;
   }
 
   .calendar, .events {
     width: 100%;
+    padding: 20px;
   }
 
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav {
-    margin-top: 10px;
+  .calendar h2, .events h2 {
+    font-size: 20px;
   }
 
   #calendarDates div {
-    padding: 8px;
-    font-size: 12px;
+    padding: 12px;
+    font-size: 15px;
   }
 
   .events li {
+    font-size: 15px;
     flex-direction: column;
-    align-items: flex-start;
+    gap: 5px;
+  }
+
+  input {
+    font-size: 16px;
+    padding: 16px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 16px;
+  }
+
+  #taskList li {
+    font-size: 15px;
   }
 
 }
