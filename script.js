@@ -23,7 +23,8 @@ function addTask() {
   tasks.push({
     text: input.value,
     date: date.value,
-    time: time.value
+    time: time.value,
+    completed: false   // ✅ NEW
   });
 
   saveTasks(tasks);
@@ -41,6 +42,16 @@ function deleteTask(index) {
   tasks.splice(index, 1);
   saveTasks(tasks);
   loadTasks();
+  loadTodayTasks();
+}
+
+// ===== TOGGLE COMPLETE =====
+function toggleComplete(index) {
+  const tasks = getTasks();
+  tasks[index].completed = !tasks[index].completed;
+  saveTasks(tasks);
+  loadTasks();
+  loadTodayTasks();
 }
 
 // ===== FORMAT TIME =====
@@ -70,9 +81,14 @@ function loadTasks() {
 
   tasks.forEach((task, index) => {
     list.innerHTML += `
-      <li>
+      <li class="${task.completed ? 'completed' : ''}">
+        <input type="checkbox" 
+          ${task.completed ? "checked" : ""} 
+          onclick="toggleComplete(${index})">
+
         <span>${task.text}</span>
         <span>${task.date} | ${formatTime(task.time)}</span>
+
         <button onclick="deleteTask(${index})">Delete</button>
       </li>
     `;
@@ -87,16 +103,24 @@ function loadTodayTasks() {
   const today = new Date().toISOString().split("T")[0];
   let tasks = getTasks();
 
+  // Keep original index for toggle
+  tasks = tasks.map((task, index) => ({ ...task, index }));
+
   tasks = tasks.filter(task => task.date === today);
 
-  // Sort by time
   tasks.sort((a, b) => a.time.localeCompare(b.time));
 
   todayList.innerHTML = "";
 
   tasks.forEach(task => {
     todayList.innerHTML += `
-      <li>${task.text} - ${formatTime(task.time)}</li>
+      <li class="${task.completed ? 'completed' : ''}">
+        <input type="checkbox"
+          ${task.completed ? "checked" : ""}
+          onclick="toggleComplete(${task.index})">
+
+        ${task.text} - ${formatTime(task.time)}
+      </li>
     `;
   });
 }

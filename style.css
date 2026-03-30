@@ -10,62 +10,60 @@
 
 /* BODY */
 body {
+  background: #f6f5ef;
+  color: #222;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  display: flex;
-  flex-direction: column;
-  color: white;
 }
 
 /* HEADER */
 header {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  
   padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background-color: #f4c430;
 }
 
 header h1 {
-  font-size: 22px;
+  font-size: 20px;
+  font-weight: 1000;
+
+}
+
+nav {
+  margin-top: 5px;
 }
 
 nav a {
-  color: white;
   text-decoration: none;
-  margin-left: 15px;
+  margin-right: 15px;
+  color: #272626;
   font-size: 14px;
 }
-
-/* MAIN CONTAINER */
+nav a:hover{
+  background-color: black;
+  color:  #f4c430;
+  padding:10px;
+  border-radius: 10px;
+}
+/* MAIN */
 .container {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
   padding: 20px;
-  flex: 1;
-}
-
-/* CARDS */
-.calendar, .events, .task-container {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(20px);
-  border-radius: 18px;
-  padding: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
 /* CALENDAR */
 .calendar {
-  width: 50%;
+  margin-bottom: 20px;
 }
 
 .calendar h2 {
   text-align: center;
   margin-bottom: 15px;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 500;
 }
 
+/* DAYS GRID */
 #calendarDates {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -76,146 +74,120 @@ nav a {
   padding: 12px;
   text-align: center;
   border-radius: 10px;
-  background: rgba(255,255,255,0.2);
   font-size: 14px;
-  transition: 0.3s;
+  
+  background-color: #b4adad65;
+  transition: 0.2s;
 }
 
+/* SELECTED DATE STYLE */
+#calendarDates div.active {
+  background: #f4c430;
+  color: black;
+  font-weight: 600;
+}
+
+/* HOVER */
 #calendarDates div:hover {
-  background: white;
-  color: #333;
+  background:#f4c430 ;
+  cursor: pointer;
 }
 
 /* EVENTS */
 .events {
-  width: 50%;
+  background:  #b4adad65;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .events h2 {
-  text-align: center;
-  margin-bottom: 15px;
-  font-size: 20px;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
+/* TASK LIST */
 .events ul {
   list-style: none;
 }
 
 .events li {
-  background: rgba(255,255,255,0.2);
-  padding: 12px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  font-size: 14px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+/* CHECKBOX STYLE */
+.events li input {
+  width: 18px;
+  height: 18px;
+}
+
+/* COMPLETED TASK */
+.events li.completed {
+  text-decoration: line-through;
+  color: #999;
 }
 
 /* TASK PAGE */
 .task-container {
-  max-width: 600px;
-  width: 90%;
-  margin: 20px auto;
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 20px;
 }
 
 /* INPUTS */
 input {
   width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 10px;
-  border: none;
-  background: rgba(255,255,255,0.2);
-  color: white;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: white;
   font-size: 14px;
 }
 
 /* BUTTON */
 button {
   width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 10px;
+  padding: 14px;
+  border-radius: 12px;
   border: none;
-  background: white;
-  color: #333;
-  font-size: 14px;
-  font-weight: 500;
+  background: #f4c430;
+  color: black;
+  font-weight: 600;
   cursor: pointer;
 }
 
-button:hover {
-  background: #f1f1f1;
-}
-
 /* TASK LIST */
-#taskList {
-  list-style: none;
-  margin-top: 15px;
-}
-
 #taskList li {
-  background: rgba(255,255,255,0.2);
+  background: white;
   padding: 12px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  border-radius: 12px;
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   font-size: 14px;
 }
 
 /* DELETE BUTTON */
 #taskList button {
-  background: #ff6b6b;
+  background: #ff4d4d;
   color: white;
   padding: 6px 10px;
-  margin-top: 5px;
   font-size: 12px;
 }
 
-#taskList button:hover {
-  background: #ff4b4b;
-}
-
-/* 📱 MOBILE DESIGN (IMPORTANT) */
+/* 📱 MOBILE PERFECT */
 @media (max-width: 768px) {
 
-  body {
-    padding: 10px;
-  }
-
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav {
-    margin-top: 10px;
-  }
-
-  /* STACK LAYOUT */
-  .container {
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  /* CALENDAR TOP */
-  .calendar {
-    width: 100%;
-    order: 1;
-  }
-
-  /* TASKS BOTTOM */
-  .events {
-    width: 100%;
-    order: 2;
-  }
-
-  /* BIGGER MOBILE UI */
-  .calendar h2,
-  .events h2 {
+  header h1 {
     font-size: 18px;
+  }
+
+  .calendar h2 {
+    font-size: 16px;
   }
 
   #calendarDates div {
@@ -223,20 +195,8 @@ button:hover {
     font-size: 13px;
   }
 
-  .events li {
-    font-size: 14px;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  input {
-    font-size: 16px;
-    padding: 14px;
-  }
-
-  button {
-    font-size: 16px;
-    padding: 14px;
+  .events {
+    padding: 15px;
   }
 
 }
