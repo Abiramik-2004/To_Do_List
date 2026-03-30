@@ -189,6 +189,7 @@ button {
 
   /* HEADER */
   header {
+    height: 120px;
     padding: 10px 5px;
   }
 
