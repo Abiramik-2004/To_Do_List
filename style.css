@@ -182,21 +182,116 @@ button {
 /* 📱 MOBILE PERFECT */
 @media (max-width: 768px) {
 
+  /* BODY PADDING */
+  body {
+    padding: 10px;
+  }
+
+  /* HEADER */
+  header {
+    padding: 10px 5px;
+  }
+
   header h1 {
     font-size: 18px;
+    font-weight: 600;
+  }
+
+  nav a {
+    font-size: 13px;
+    margin-right: 10px;
+  }
+
+  /* CONTAINER */
+  .container {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  /* CALENDAR */
+  .calendar {
+    background: #fff;
+    padding: 15px;
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
   }
 
   .calendar h2 {
     font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  #calendarDates {
+    gap: 6px;
   }
 
   #calendarDates div {
-    padding: 10px;
-    font-size: 13px;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 10px;
   }
 
+  /* ACTIVE DATE */
+  #calendarDates div.active {
+    background: #f4c430;
+    color: #000;
+    font-weight: 600;
+  }
+
+  /* EVENTS SECTION */
   .events {
+    background: #fff;
     padding: 15px;
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  }
+
+  .events h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  /* TASK ITEMS */
+  .events li {
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* CHECKBOX */
+  .events li input {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* COMPLETED */
+  .events li.completed {
+    text-decoration: line-through;
+    color: #999;
+  }
+
+  /* TASK PAGE */
+  .task-container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  /* INPUT */
+  input {
+    font-size: 16px;
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  /* BUTTON */
+  button {
+    font-size: 16px;
+    padding: 16px;
+    border-radius: 14px;
   }
 
 }
