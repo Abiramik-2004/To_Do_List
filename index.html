@@ -18,9 +18,16 @@
 <div class="container">
 
   <div class="calendar">
+
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    <button onclick="prevMonth()">⬅</button>
     <h2 id="monthYear"></h2>
-    <div id="calendarDates"></div>
+    <button onclick="nextMonth()">➡</button>
   </div>
+
+  <div id="calendarDates"></div>
+
+</div>
 
   <div class="events">
     <h2>Today's Schedule</h2>

@@ -126,31 +126,102 @@ function loadTodayTasks() {
 }
 
 // ===== CALENDAR =====
-const calendarDates = document.getElementById("calendarDates");
-const monthYear = document.getElementById("monthYear");
+// ===== GLOBAL DATE CONTROL =====
+let currentDate = new Date();
+let selectedDate = new Date().toISOString().split("T")[0];
 
-if (calendarDates) {
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = date.getMonth();
+// ===== LOAD CALENDAR =====
+function loadCalendar() {
+  const calendarDates = document.getElementById("calendarDates");
+  const monthYear = document.getElementById("monthYear");
+
+  if (!calendarDates) return;
+
+  calendarDates.innerHTML = "";
+
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
 
   const firstDay = new Date(year, month, 1).getDay();
   const totalDays = new Date(year, month + 1, 0).getDate();
 
-  monthYear.innerText = date.toLocaleString("default", {
+  monthYear.innerText = currentDate.toLocaleString("default", {
     month: "long",
     year: "numeric"
   });
 
+  // empty slots
   for (let i = 0; i < firstDay; i++) {
     calendarDates.innerHTML += `<div></div>`;
   }
 
   for (let i = 1; i <= totalDays; i++) {
-    calendarDates.innerHTML += `<div>${i}</div>`;
+
+    let fullDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+
+    let isActive = fullDate === selectedDate ? "active" : "";
+
+    calendarDates.innerHTML += `
+      <div class="${isActive}" onclick="selectDate('${fullDate}')">
+        ${i}
+      </div>
+    `;
   }
 }
 
-// ===== INIT =====
+// ===== SELECT DATE =====
+function selectDate(date) {
+  selectedDate = date;
+  loadCalendar();
+  loadTasksByDate();
+}
+
+// ===== NEXT / PREVIOUS MONTH =====
+function nextMonth() {
+  currentDate.setMonth(currentDate.getMonth() + 1);
+  loadCalendar();
+}
+
+function prevMonth() {
+  currentDate.setMonth(currentDate.getMonth() - 1);
+  loadCalendar();
+}
+
+// ===== LOAD TASKS BY SELECTED DATE =====
+function loadTasksByDate() {
+  const list = document.getElementById("todayTasks");
+  if (!list) return;
+
+  let tasks = getTasks();
+
+  tasks = tasks.map((task, index) => ({ ...task, index }));
+
+  tasks = tasks.filter(task => task.date === selectedDate);
+
+  tasks.sort((a, b) => a.time.localeCompare(b.time));
+
+  list.innerHTML = "";
+
+  if (tasks.length === 0) {
+    list.innerHTML = "<li>No tasks for this date</li>";
+    return;
+  }
+
+  tasks.forEach(task => {
+    list.innerHTML += `
+      <li class="${task.completed ? 'completed' : ''}">
+        <input type="checkbox"
+          ${task.completed ? "checked" : ""}
+          onclick="toggleComplete(${task.index})">
+
+        ${task.text} - ${formatTime(task.time)}
+      </li>
+    `;
+  });
+}
+
+// ===== INIT UPDATE =====
 loadTasks();
-loadTodayTasks();
+loadCalendar();
+loadTasksByDate();
+

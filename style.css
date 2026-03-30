@@ -17,15 +17,13 @@ body {
 
 /* HEADER */
 header {
-  
   padding: 15px 20px;
   background-color: #f4c430;
 }
 
 header h1 {
   font-size: 20px;
-  font-weight: 1000;
-
+  font-weight: 700;
 }
 
 nav {
@@ -38,12 +36,14 @@ nav a {
   color: #272626;
   font-size: 14px;
 }
-nav a:hover{
+
+nav a:hover {
   background-color: black;
-  color:  #f4c430;
-  padding:10px;
+  color: #f4c430;
+  padding: 8px;
   border-radius: 10px;
 }
+
 /* MAIN */
 .container {
   display: flex;
@@ -56,9 +56,29 @@ nav a:hover{
   margin-bottom: 20px;
 }
 
+/* CALENDAR HEADER (buttons + month) */
+.calendar div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* FIX BUTTON SIZE */
+.calendar button {
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  border-radius: 8px;
+  font-size: 18px;
+  background: #f4c430;
+  border: none;
+  cursor: pointer;
+}
+
+/* MONTH TEXT */
 .calendar h2 {
+  flex: 1;
   text-align: center;
-  margin-bottom: 15px;
   font-size: 18px;
   font-weight: 500;
 }
@@ -68,6 +88,7 @@ nav a:hover{
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 8px;
+  margin-top: 10px;
 }
 
 #calendarDates div {
@@ -75,27 +96,27 @@ nav a:hover{
   text-align: center;
   border-radius: 10px;
   font-size: 14px;
-  
   background-color: #b4adad65;
   transition: 0.2s;
 }
 
-/* SELECTED DATE STYLE */
+/* ACTIVE DATE */
 #calendarDates div.active {
   background: #f4c430;
   color: black;
   font-weight: 600;
+  transform: scale(1.1);
 }
 
 /* HOVER */
 #calendarDates div:hover {
-  background:#f4c430 ;
+  background: #f4c430;
   cursor: pointer;
 }
 
 /* EVENTS */
 .events {
-  background:  #b4adad65;
+  background: #b4adad65;
   border-radius: 20px;
   padding: 20px;
 }
@@ -118,7 +139,7 @@ nav a:hover{
   font-size: 15px;
 }
 
-/* CHECKBOX STYLE */
+/* CHECKBOX */
 .events li input {
   width: 18px;
   height: 18px;
@@ -137,7 +158,7 @@ nav a:hover{
   padding: 20px;
 }
 
-/* INPUTS */
+/* INPUT */
 input {
   width: 100%;
   padding: 14px;
@@ -148,7 +169,7 @@ input {
   font-size: 14px;
 }
 
-/* BUTTON */
+/* BUTTON (GENERAL) */
 button {
   width: 100%;
   padding: 14px;
@@ -177,25 +198,22 @@ button {
   color: white;
   padding: 6px 10px;
   font-size: 12px;
+  width: auto;
 }
 
-/* 📱 MOBILE PERFECT */
+/* 📱 MOBILE */
 @media (max-width: 768px) {
 
-  /* BODY PADDING */
   body {
     padding: 10px;
   }
 
-  /* HEADER */
   header {
-    height: 1620px;
-    padding: 10px 5px;
+    padding: 10px;
   }
 
   header h1 {
     font-size: 18px;
-    font-weight: 600;
   }
 
   nav a {
@@ -203,13 +221,11 @@ button {
     margin-right: 10px;
   }
 
-  /* CONTAINER */
   .container {
     padding: 10px;
     gap: 15px;
   }
 
-  /* CALENDAR */
   .calendar {
     background: #fff;
     padding: 15px;
@@ -219,27 +235,13 @@ button {
 
   .calendar h2 {
     font-size: 16px;
-    margin-bottom: 10px;
-  }
-
-  #calendarDates {
-    gap: 6px;
   }
 
   #calendarDates div {
-    padding: 12px;
-    font-size: 14px;
-    border-radius: 10px;
+    padding: 10px;
+    font-size: 13px;
   }
 
-  /* ACTIVE DATE */
-  #calendarDates div.active {
-    background: #f4c430;
-    color: #000;
-    font-weight: 600;
-  }
-
-  /* EVENTS SECTION */
   .events {
     background: #fff;
     padding: 15px;
@@ -247,52 +249,28 @@ button {
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
   }
 
-  .events h2 {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-
-  /* TASK ITEMS */
   .events li {
     background: #f9f9f9;
     padding: 12px;
     border-radius: 12px;
     font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
   }
 
-  /* CHECKBOX */
-  .events li input {
-    width: 20px;
-    height: 20px;
-  }
-
-  /* COMPLETED */
-  .events li.completed {
-    text-decoration: line-through;
-    color: #999;
-  }
-
-  /* TASK PAGE */
-  .task-container {
-    width: 100%;
-    padding: 15px;
-  }
-
-  /* INPUT */
   input {
     font-size: 16px;
     padding: 16px;
-    border-radius: 14px;
   }
 
-  /* BUTTON */
   button {
     font-size: 16px;
     padding: 16px;
-    border-radius: 14px;
   }
 
+  /* KEEP CALENDAR BUTTON SMALL IN MOBILE */
+  .calendar button {
+    width: 35px !important;
+    height: 35px !important;
+    padding: 0 !important;
+    font-size: 16px;
+  }
 }
